@@ -71,10 +71,10 @@ Now, in my `send_verification.js.erb` file I have a form that asks for only a ve
 
 ```ruby
 
-	<%= form_tag("phone number create action", method: "post") do %>
-	  <%= text_field_tag(:verify_code, nil, class: "form-control", placeholder: "ex: 85666")%>
-	  <%= button_tag("Verifify My phone number",class: "btn btn-block btn-warning btn-lg") %>
-	<% end %>
+<%= form_tag("phone number create action", method: "post") do %>
+  <%= text_field_tag(:verify_code, nil, class: "form-control", placeholder: "ex: 85666")%>
+  <%= button_tag("Verifify My phone number",class: "btn btn-block btn-warning btn-lg") %>
+<% end %>
 
 ```
 
@@ -83,9 +83,9 @@ This form creates a `PhoneNumber` record and checks the verify code matches the 
 
 ```ruby
 
-	def create
-	  PhoneNumber.create(number: flash[:number], matcher: params[:verify_code]) unless params[:verify_code] != flash[:verify_code]    
-	end
+def create
+  PhoneNumber.create(number: flash[:number], matcher: params[:verify_code]) unless params[:verify_code] != flash[:verify_code]    
+end
 
 ```
 We set the phonenumber equal to what was sent in the first form via the flash variable. This simply says don't save the phonenumber unless the verification code sent in matches the verification code set to the flash variable earlier.
@@ -95,9 +95,9 @@ I'm saving the verify code to the `PhoneNumber` record because I want to test ou
 
 ```ruby
 
-	def create
-		PhoneNumber.create(number: flash[:number]) unless params[:verify_code] != flash[:verify_code]    
-	end
+def create
+	PhoneNumber.create(number: flash[:number]) unless params[:verify_code] != flash[:verify_code]    
+end
 
 ```
 
