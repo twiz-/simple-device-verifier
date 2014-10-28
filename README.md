@@ -17,16 +17,16 @@ I first prompt a visitor to input any phone number and submit the form. Once thi
 
 ```ruby
 
-	<%= form_tag("/verification/", method: "post", remote: true, role: "form", id: "phonenumberForm") do %>
-		<div class="form-group">
-		<label>Enter phone number with</label>
-		  <%= text_field_tag(:unverified_number,nil, class: "form-control", placeholder: "ex: +14151234567", data: {"bv-phone-message" => true} )%>
-		</div>
-		<div class="form-group">
-		  <%= button_tag("Send Number",class: "btn btn-block btn-success btn-lg") %>
-		  <small><i>By filling out this form you agree to the <%= link_to "terms", terms_path %></i></small>
-		</div> 
-	<% end %> 
+<%= form_tag("/verification/", method: "post", remote: true, role: "form", id: "phonenumberForm") do %>
+	<div class="form-group">
+	<label>Enter phone number with</label>
+	  <%= text_field_tag(:unverified_number,nil, class: "form-control", placeholder: "ex: +14151234567", data: {"bv-phone-message" => true} )%>
+	</div>
+	<div class="form-group">
+	  <%= button_tag("Send Number",class: "btn btn-block btn-success btn-lg") %>
+	  <small><i>By filling out this form you agree to the <%= link_to "terms", terms_path %></i></small>
+	</div> 
+<% end %> 
 
 ```
 
@@ -38,15 +38,15 @@ Here is the `send_verification` method in my controller.
 
 ```ruby
 
-	def send_verification
-	  flash[:number] = params[:unverified_number]
-	  flash[:verify_code] = SecureRandom.random_number.to_s[-6..-1]
-	  client = TwilioWorker.new(flash[:number],flash[:verify_code])
-	  client.send_verification_code_for_signup    
-	  respond_to do |format|
-	    format.js
-	  end
-	end
+def send_verification
+  flash[:number] = params[:unverified_number]
+  flash[:verify_code] = SecureRandom.random_number.to_s[-6..-1]
+  client = TwilioWorker.new(flash[:number],flash[:verify_code])
+  client.send_verification_code_for_signup    
+  respond_to do |format|
+    format.js
+  end
+end
   
 ```
 
