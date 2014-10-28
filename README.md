@@ -1,11 +1,18 @@
 simple-device-verifier
 ======================
 
-simple rails strategy to verify phone number and device
-
 I wanted to simply verify that a user had access to the actual phonenumber they were entering before saving the record to my rails backend. Here is the implementation-
 
-Here I have a form where a user inputs any phone numer and submits the form. I have this form responding to AJAX that prompts the user to then enter in the verification they receive. I'm sending the number as `:unverified` that I'll reference later. This form submits to an action in my controller called `send_verification`
+Here is what you should have by the end of it-
+
+Enter in a phone number-
+
+![alt text](http://fat.gfycat.com/LegitimateEvenFoal.gif "enter number")
+
+and get a verification code to save record-
+![alt text](http://fat.gfycat.com/ReflectingTheseAfricanparadiseflycatcher.gif "enter number")
+
+I have a form where a user inputs any phone numer and submits the form. I have this form responding to AJAX that prompts the user to then enter in the verification they receive. I'm sending the number as `:unverified` that I'll reference later. This form submits to an action in my controller called `send_verification`
 
 ```ruby
 <%= form_tag("/route-endpoint/", method: "post", remote: true, role: "form", id: "phonenumberForm") do %>
