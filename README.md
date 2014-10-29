@@ -1,7 +1,7 @@
 Simple rails + mobile device verification
 ======================
 
-I wanted to simply verify that a user had access to the actual phonenumber they were entering before saving the record to my rails backend. Here is the implementation and what you should have by the end of it-
+I wanted to simply verify that a user had access to the actual phone number they were entering before saving the record to my rails backend. Here is the implementation and what you should have by the end of it-
 
 Enter in a phone number
 
