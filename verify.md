@@ -11,7 +11,7 @@ and get a verification code to save record.
 
 ![alt text](http://fat.gfycat.com/ReflectingTheseAfricanparadiseflycatcher.gif "enter number")
 
-You can see it in action here [54footy express](https://54fexpress.com)
+You can see it in action here [54footy express](https://fiftyfourfooty-express.herokuapp.com)
 
 ####Get the phone number
 
