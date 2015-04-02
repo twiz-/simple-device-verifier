@@ -18,7 +18,7 @@ You can see it in action here [54footy express](https://fiftyfourfooty-express.h
 I first prompt a visitor to input any phone number and submit the form. Once this form submits it responds via AJAX and another form that prompts the user to then enter in the verification they receive via sms. I'm sending the number as `:unverified` that I'll reference later. This form submits to an action in my controller called `send_verification`.
 
 ```ruby
-<%= form_tag("/verification/", method: "post", remote: true, role: "form", id: "phonenumberForm") do %>
+<%= form_tag(send_verification_path, remote: true, role: "form", id: "phonenumberForm") do %>
 	<div class="form-group">
 	<label>Enter phone number with</label>
 	  <%= text_field_tag(:unverified_number,nil, class: "form-control", placeholder: "ex: +14151234567", data: {"bv-phone-message" => true} )%>
@@ -68,7 +68,7 @@ Finally, I'm responding with a form that will actually create and save a verifie
 Now, in my `send_verification.js.erb` file I have a form that asks for only a verfication code. 
 
 ```ruby
-<%= form_tag("phone number create action", method: "post") do %>
+<%= form_tag(confirmed_phone_path) do %>
   <%= text_field_tag(:verify_code, nil, class: "form-control", placeholder: "ex: 85666")%>
   <%= button_tag("Verifify My phone number",class: "btn btn-block btn-warning btn-lg") %>
 <% end %>
